@@ -1,23 +1,28 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+
+<div class="input-group">
+  <input type="text"
+         placeholder="Search..."
+         class="search fully-rounded"
+         ng-model="search_query.text"
+         ng-change="change()"
+         id="toolSearch">
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class="container">
+    <table>
+        <tr>
+            <th>Author</th>
+            <th>Name</th>
+            <th>Project Links</th>
+            <th>Docker Pull</th>
+        </tr>
+        <tr ng-repeat="tool in tools">
+            <td>{{ tool.author }}</td>
+            <td>{{ tool.name }}</td>
+            <td><a>Github</a> <a>Quay.io</a></td>
+            <td>{{ tool.image }}</td>
+        </tr>
+    </table>
 </div>
+
+<p>{{ search_query.text }}</p>
